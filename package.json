@@ -1,0 +1,12 @@
+{
+  "name": "kithome",
+  "version": "1.0.0",
+  "description": "KITHOME - amenagement IA d'interieur avec produits reels (IKEA, Maisons du Monde, Leroy Merlin, Amazon).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
