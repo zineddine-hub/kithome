@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KITHOME — Designer · Innover · Créer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <nav class="menu-pop" id="menuPop">
+    <a href="#generer">Aménager mon espace</a>
+    <a href="#templates">Templates</a>
+    <a href="#abonnement">Abonnement</a>
+    <a href="#apropos">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="spacer"></div>
+  <div class="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="siteSearch" placeholder="Rechercher un style, un meuble…">
+  </div>
+  <div class="right-icons">
+    <button class="icon-btn" aria-label="Profil"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>
+  </div>
+</header>
+
+<div class="brand"><h1>KITHOME</h1></div>
+
+<div class="stickynav">
+  <nav class="nav">
+    <a href="#apropos">À PROPOS</a>
+    <a href="#generer">AMÉNAGER</a>
+    <a href="#abonnement">ABONNEMENT</a>
+    <a href="#templates">TEMPLATES</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="scene">
+    <div class="floor"></div>
+    <div class="sofa">
+      <img src="https://images.unsplash.com/photo-1658706273866-ff25bdaee8d4?q=80&w=1200&auto=format&fit=crop" alt="Salon canapé cuir">
+    </div>
+    <div class="heroba" id="heroba" style="--hp:50%">
+      <img src="apres.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=900&auto=format&fit=crop'" alt="Pièce rénovée et meublée">
+      <div class="top"><img src="avant.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1553969914-1397d0f0b865?q=80&w=900&auto=format&fit=crop'" alt="Même maison délabrée à refaire"></div>
+      <div class="hdl"><span>&#8646;</span></div>
+      <span class="tag l">À REFAIRE</span>
+      <span class="tag r">MEUBLÉE</span>
+      <input type="range" min="0" max="100" value="50" id="herobaRange" aria-label="Comparer avant et après">
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMBLÈME ===== -->
+<a href="#generer" class="emblem-wrap" aria-label="Aménager mon espace">
+  <svg class="emblem" viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <path id="arcD" d="M30,290 A250,250 0 0 1 530,290" fill="none"/>
+      <path id="arcI" d="M85,290 A195,195 0 0 1 475,290" fill="none"/>
+      <path id="arcC" d="M140,290 A140,140 0 0 1 420,290" fill="none"/>
+    </defs>
+    <g fill="none" stroke="rgba(176,141,79,.25)" stroke-width="1.2">
+      <path d="M18,290 A262,262 0 0 1 542,290"/>
+      <path d="M58,290 A222,222 0 0 1 502,290"/>
+      <path d="M112,290 A168,168 0 0 1 448,290"/>
+      <path d="M168,290 A112,112 0 0 1 392,290"/>
+    </g>
+    <g style="filter:drop-shadow(0 1px 1px rgba(176,141,79,.35))">
+      <text font-size="48" text-anchor="middle"><textPath href="#arcD" startOffset="50%">DESIGNER</textPath></text>
+      <text font-size="48" text-anchor="middle"><textPath href="#arcI" startOffset="50%">INNOVER</textPath></text>
+      <text font-size="48" text-anchor="middle"><textPath href="#arcC" startOffset="50%">CRÉER</textPath></text>
+    </g>
+  </svg>
+  <svg class="spark" viewBox="0 0 24 24"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="#c9a86a"/></svg>
+</a>
+
+<div class="hero-cta">
+  <a class="btn-primary" href="#generer">AMÉNAGER MON ESPACE</a>
+  <a class="btn-outline" href="#templates">EXPLORER LES KITS</a>
+</div>
+
+<!-- ===== AMÉNAGER ===== -->
+<section class="section" id="generer">
+  <span class="eyebrow">Création assistée par IA</span>
+  <div class="section-title"><h2>AMÉNAGEZ VOTRE ESPACE</h2></div>
+  <p class="lead">Décrivez votre pièce ou importez sa photo. Choisissez les meubles voulus et votre budget : l'IA compose l'aménagement avec des produits réels qui correspondent, puis vous les commandez chez nos marchands.</p>
+
+  <div class="keyrow">
+    <input type="password" id="geminiKey" placeholder="Clé API Gemini (active l'IA et la génération d'image)" autocomplete="off">
+    <span class="tip">sinon : mode démo (catalogue réel + image type)</span>
+  </div>
+
+  <div class="gen-wrap">
+    <textarea id="prompt" placeholder="Cliquez ici pour décrire votre pièce… (ex : un salon scandinave lumineux)"></textarea>
+    <div class="uploadrow">
+      <label class="uploadbtn">＋ Importer une photo de ma pièce
+        <input type="file" id="imgUp" accept="image/*" hidden>
+      </label>
+      <span class="tip" id="imgName"></span>
+    </div>
+    <button class="gen-btn" id="openPickBtn">CHOISIR MES MEUBLES &amp; BUDGET</button>
+  </div>
+
+  <div class="genmeter" id="genMeter"></div>
+
+  <div class="ba" id="ba" style="--p:50%;display:none">
+    <img id="afterImg" src="apres.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1100&auto=format&fit=crop'" alt="Après">
+    <div class="top"><img id="beforeImg" src="avant.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1553969914-1397d0f0b865?q=80&w=1100&auto=format&fit=crop'" alt="Avant"></div>
+    <div class="hdl"><span>&#8646;</span></div>
+    <span class="tag l">À REFAIRE</span>
+    <span class="tag r">MEUBLÉE</span>
+    <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Comparer avant et après">
+  </div>
+
+  <div class="shop" id="shop">
+    <h4>Meubles de votre aménagement — équivalents chez nos marchands</h4>
+    <p class="hint">Pour chaque objet : l'équivalent réel chez IKEA, Maisons du Monde, Leroy Merlin et Amazon. ✓ = meilleur choix pour votre budget.</p>
+    <div id="shop-list"></div>
+    <div class="shop-total" id="shopTotal"></div>
+  </div>
+</section>
+
+<!-- ===== TEMPLATES ===== -->
+<section class="section" id="templates">
+  <span class="eyebrow">Catalogue</span>
+  <div class="section-title"><h2>EXPLOREZ NOS KITS DE CONCEPTION</h2></div>
+  <p class="lead">Cliquez un kit : l'IA génère votre pièce dans cette ambiance, avec des meubles réels à commander.</p>
+
+  <div class="filters">
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Rechercher un kit">
+    </div>
+    <span class="chip active" data-f="all">Tout</span>
+    <span class="chip" data-f="interieur">INTÉRIEUR - SALON</span>
+    <span class="chip" data-f="exterieur">EXTÉRIEUR - Terrasse</span>
+    <span class="chip" data-f="interieur">INTÉRIEUR - Cuisine</span>
+    <span class="chip" data-f="exterieur">Balcons&nbsp;&#9662;</span>
+  </div>
+
+  <div class="grid" id="grid">
+    <article class="card" data-cat="interieur" data-style="scandinave" data-types="canape,table,etagere,lampe,tapis">
+      <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=900&auto=format&fit=crop" alt="Salon scandinave">
+      <div class="veil"></div>
+      <div class="body"><h3>INTÉRIEUR - SALON</h3><p>Salon scandinave : canapé, rangements et lumière douce.</p><button class="btn-ghost kit-btn">GÉNÉRER CE KIT</button></div>
+    </article>
+    <article class="card" data-cat="exterieur" data-style="extérieur bois" data-types="fauteuil,table,plante">
+      <img src="https://images.unsplash.com/photo-1730204880386-1587173e16e7?q=80&w=900&auto=format&fit=crop" alt="Terrasse">
+      <div class="veil"></div>
+      <div class="body"><h3>EXTÉRIEUR - TERRASSE</h3><p>Lounge bois et plantes pour la terrasse.</p><button class="btn-ghost kit-btn">GÉNÉRER CE KIT</button></div>
+    </article>
+    <article class="card" data-cat="interieur" data-style="cuisine fonctionnelle" data-types="cuisine,chaise,lampe">
+      <img src="https://images.unsplash.com/photo-1610276173132-c47d148ab626?q=80&w=900&auto=format&fit=crop" alt="Cuisine">
+      <div class="veil"></div>
+      <div class="body"><h3>INTÉRIEUR - CUISINE</h3><p>Cuisine fonctionnelle et lumineuse.</p><button class="btn-ghost kit-btn">GÉNÉRER CE KIT</button></div>
+    </article>
+    <article class="card" data-cat="exterieur" data-style="balcon urbain" data-types="fauteuil,plante,tapis">
+      <img src="https://images.unsplash.com/photo-1693585576674-2e1b7166f583?q=80&w=900&auto=format&fit=crop" alt="Balcon urbain">
+      <div class="veil"></div>
+      <div class="body"><h3>EXTÉRIEUR - BALCON</h3><p>Balcon urbain compact et végétal.</p><button class="btn-ghost kit-btn">GÉNÉRER CE KIT</button></div>
+    </article>
+    <article class="card" data-cat="interieur" data-style="chambre cosy" data-types="lit,commode,lampe,tapis">
+      <img src="https://images.unsplash.com/photo-1633944095397-878622ebc01c?q=80&w=900&auto=format&fit=crop" alt="Chambre">
+      <div class="veil"></div>
+      <div class="body"><h3>INTÉRIEUR - CHAMBRE</h3><p>Chambre cosy, textures chaudes.</p><button class="btn-ghost kit-btn">GÉNÉRER CE KIT</button></div>
+    </article>
+    <article class="card" data-cat="interieur" data-style="moderne" data-types="canape,fauteuil,table,etagere">
+      <img src="https://images.unsplash.com/photo-1747336754870-ca7b10cc75f5?q=80&w=900&auto=format&fit=crop" alt="Séjour moderne">
+      <div class="veil"></div>
+      <div class="body"><h3>SÉJOUR MODERNE</h3><p>Lignes épurées, ambiance contemporaine.</p><button class="btn-ghost kit-btn">GÉNÉRER CE KIT</button></div>
+    </article>
+    <article class="card" data-cat="interieur" data-style="haussmannien parisien élégant, moulures, parquet à chevrons, cheminée en marbre" data-types="canape,fauteuil,table,etagere,lampe,tapis">
+      <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=900&auto=format&fit=crop" alt="Style haussmannien">
+      <div class="veil"></div>
+      <div class="body"><h3>STYLE HAUSSMANNIEN</h3><p>Moulures, parquet à chevrons, élégance parisienne.</p><button class="btn-ghost kit-btn">GÉNÉRER CE KIT</button></div>
+    </article>
+  </div>
+
+  <div class="deco-row">
+    <img class="lounge-chair" src="https://images.unsplash.com/photo-1605822591786-6fd259a868d5?q=80&w=600&auto=format&fit=crop" alt="Fauteuil lounge cuir">
+    <div class="deco-center">
+      <svg class="spark-sm" viewBox="0 0 24 24"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="#c9a86a"/></svg>
+      <div class="concrete-table"></div>
+      <svg class="spark-sm" viewBox="0 0 24 24"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" fill="#c9a86a"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABONNEMENT ===== -->
+<div class="band">
+  <section class="section" id="abonnement">
+    <span class="eyebrow">Tarifs</span>
+    <div class="section-title"><h2>ABONNEMENT &amp; COMPARATIF</h2></div>
+    <p class="lead">3 générations offertes. Au-delà, l'abonnement débloque les liens marchands, le comparatif de prix et les avis détaillés.</p>
+    <div class="plans">
+      <div class="plan"><h3>DÉCOUVERTE</h3><div class="price">0€</div><ul><li>3 aménagements</li><li>Aperçu des produits</li><li>Galerie communauté</li></ul><a class="btn-ghost" href="#generer" style="margin-top:14px">COMMENCER</a></div>
+      <div class="plan"><h3>CRÉATIF</h3><div class="price">12€</div><ul><li>Générations illimitées</li><li>Liens marchands débloqués</li><li>Comparatif prix &amp; avis</li></ul><button class="btn-ghost subscribe-btn" style="margin-top:14px">S'ABONNER</button></div>
+      <div class="plan"><h3>STUDIO</h3><div class="price">29€</div><ul><li>Tout Créatif</li><li>Avis détaillés complets</li><li>Support prioritaire</li></ul><button class="btn-ghost subscribe-btn" style="margin-top:14px">S'ABONNER</button></div>
+    </div>
+    <div class="sub-state" id="subState"></div>
+  </section>
+</div>
+
+<!-- ===== À PROPOS ===== -->
+<section class="section" id="apropos">
+  <span class="eyebrow">Notre maison</span>
+  <div class="section-title"><h2>À PROPOS DE KITHOME</h2></div>
+  <div class="about-grid" style="margin-top:28px">
+    <div class="txt">
+      <p>KITHOME transforme une maison à refaire en intérieur meublé. Décrivez votre pièce ou importez sa photo, choisissez vos meubles et votre budget : l'IA propose des produits réels chez IKEA, Maisons du Monde, Leroy Merlin et Amazon, avec comparatif de prix et avis.</p>
+      <p>De la maison délabrée à l'intérieur fini : inspiration, sélection au budget et passage à l'achat, au même endroit.</p>
+      <div class="stats">
+        <div class="stat"><b>120+</b><span>KITS DESIGN</span></div>
+        <div class="stat"><b>4</b><span>MARCHANDS</span></div>
+        <div class="stat"><b>4.9★</b><span>SATISFACTION</span></div>
+      </div>
+    </div>
+    <div class="about-img"><img src="https://images.unsplash.com/photo-1747336754870-ca7b10cc75f5?q=80&w=1000&auto=format&fit=crop" alt="Intérieur design"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <span class="eyebrow">Parlons-en</span>
+  <div class="section-title"><h2>CONTACTEZ-NOUS</h2></div>
+  <p class="lead">Une question, un projet ? Écrivez-nous, nous répondons sous 48 h.</p>
+  <p class="lead" style="margin-bottom:0">Vos messages sont adressés à <b>kithome.sav@gmail.com</b>.</p>
+  <form class="gen-wrap" style="margin-top:18px" onsubmit="event.preventDefault(); var s=encodeURIComponent('Contact KITHOME — '+this.cnom.value); var b=encodeURIComponent('Nom : '+this.cnom.value+'\nE-mail : '+this.cmail.value+'\n\n'+this.cmsg.value); window.location.href='mailto:kithome.sav@gmail.com?subject='+s+'&body='+b; this.reset();">
+    <input class="field" name="cnom" type="text" placeholder="Votre nom" required>
+    <input class="field" name="cmail" type="email" placeholder="Votre e-mail" required>
+    <textarea class="field" name="cmsg" rows="5" placeholder="Votre message" required></textarea>
+    <div style="text-align:center"><button class="gen-btn" type="submit">ENVOYER</button></div>
+  </form>
+</section>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div>
+      <h4>KITHOME</h4>
+      <p class="muted">Designer, innover, créer. La plateforme qui transforme une maison à refaire en intérieur meublé, avec des produits réels prêts à commander.</p>
+    </div>
+    <div>
+      <h5>Navigation</h5>
+      <ul><li><a href="#templates">Templates</a></li><li><a href="#generer">Aménager</a></li><li><a href="#abonnement">Abonnement</a></li><li><a href="#apropos">À propos</a></li></ul>
+    </div>
+    <div>
+      <h5>Marchands</h5>
+      <ul><li><a href="https://www.ikea.com/fr/fr/" target="_blank" rel="noopener">IKEA</a></li><li><a href="https://www.maisonsdumonde.com/" target="_blank" rel="noopener">Maisons du Monde</a></li><li><a href="https://www.leroymerlin.fr/" target="_blank" rel="noopener">Leroy Merlin</a></li><li><a href="https://www.amazon.fr/" target="_blank" rel="noopener">Amazon</a></li></ul>
+    </div>
+    <div>
+      <h5>Newsletter</h5>
+      <p class="muted">Recevez nos nouveaux aménagements chaque mois.</p>
+      <form class="news" onsubmit="event.preventDefault(); var e=this.querySelector('input').value; window.location.href='mailto:kithome.sav@gmail.com?subject='+encodeURIComponent('Newsletter KITHOME')+'&body='+encodeURIComponent('Inscription newsletter : '+e); this.reset();">
+        <input type="email" placeholder="Votre e-mail" required>
+        <button type="submit">OK</button>
+      </form>
+    </div>
+  </div>
+  <div class="foot-bottom">© KITHOME 2024 — Tous droits réservés · <a href="cgv.html" style="color:var(--gold-soft);font-weight:700">CGV</a> · <a href="cgv.html#mentions" style="color:var(--gold-soft);font-weight:700">Mentions légales</a></div>
+</footer>
+
+<!-- pop-up sélection meubles + budget -->
+<div class="modal" id="pickModal">
+  <div class="modal-card wide">
+    <button class="modal-close" id="pickClose" aria-label="Fermer">&times;</button>
+    <h3>Quels meubles voulez-vous ?</h3>
+    <p class="sub">Sélectionnez les pièces à intégrer, puis votre budget par meuble.</p>
+    <div class="pick-grid" id="pickGrid"></div>
+    <div class="budget">
+      <label>Budget par meuble <span class="val" id="budgetVal">2 500 €</span></label>
+      <input type="range" id="budgetRange" min="10" max="25000" step="10" value="2500">
+      <div class="ends"><span>10 €</span><span>25 000 €</span></div>
+    </div>
+    <div class="pick-actions"><button class="gen-btn" id="go">GÉNÉRER MON ESPACE</button></div>
+  </div>
+</div>
+
+<!-- pop-up comparatif -->
+<div class="modal" id="cmpModal">
+  <div class="modal-card">
+    <button class="modal-close" id="cmpClose" aria-label="Fermer">&times;</button>
+    <div id="cmpBody"></div>
+  </div>
+</div>
+
+<script>
+  const GEMINI_TEXT_MODEL  = "gemini-2.0-flash";
+  const GEMINI_IMAGE_MODEL = "gemini-2.0-flash-preview-image-generation";
+  const FREE_LIMIT = 3;
+  const DERELICT = "https://images.unsplash.com/photo-1553969914-1397d0f0b865?q=80&w=1100&auto=format&fit=crop";
+
+  /* ---- Filtres galerie ---- */
+  document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));c.classList.add('active');
+    const f=c.dataset.f;
+    document.querySelectorAll('.card').forEach(card=>{card.style.display=(f==='all'||card.dataset.cat.includes(f))?'':'none';});
+  }));
+
+  /* ---- Comparateurs avant/après ---- */
+  const heroba=document.getElementById('heroba'), herobaRange=document.getElementById('herobaRange');
+  herobaRange.addEventListener('input',()=>heroba.style.setProperty('--hp',herobaRange.value+'%'));
+  const ba=document.getElementById('ba'), baRange=document.getElementById('baRange');
+  const beforeImg=document.getElementById('beforeImg'), afterImg=document.getElementById('afterImg');
+  baRange.addEventListener('input',()=>ba.style.setProperty('--p',baRange.value+'%'));
+
+  /* ---- Menu (☰) avec raccourcis + recherche par mots-clés ---- */
+  const menuBtn=document.getElementById('menuBtn'), menuPop=document.getElementById('menuPop');
+  menuBtn.addEventListener('click',e=>{e.stopPropagation();const o=menuPop.classList.toggle('show');menuBtn.setAttribute('aria-expanded',o);});
+  document.addEventListener('click',()=>menuPop.classList.remove('show'));
+  menuPop.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menuPop.classList.remove('show')));
+  const siteSearch=document.getElementById('siteSearch');
+  function runSearch(scroll){
+    const q=(siteSearch.value||'').toLowerCase().trim();
+    document.querySelectorAll('#grid .card').forEach(c=>{
+      const hay=(c.textContent+' '+(c.dataset.style||'')+' '+(c.dataset.types||'')).toLowerCase();
+      c.style.display=(!q||hay.includes(q))?'':'none';
+    });
+    if(q&&scroll) document.getElementById('templates').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  siteSearch.addEventListener('input',()=>runSearch(false));
+  siteSearch.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();runSearch(true);}});
+
+  /* ---- Marchands + visuels ---- */
+  const STORE={ikea:["IKEA","https://www.ikea.com/fr/fr/search/?q="],mdm:["Maisons du Monde","https://www.maisonsdumonde.com/FR/fr/search?text="],leroy:["Leroy Merlin","https://www.leroymerlin.fr/recherche?query="],amazon:["Amazon","https://www.amazon.fr/s?k="]};
+  function listingURL(s,q){return (STORE[s]||STORE.amazon)[1]+encodeURIComponent(q||"");}
+  const T={sofa:"https://images.unsplash.com/photo-1658706273866-ff25bdaee8d4?q=80&w=200&auto=format&fit=crop",chair:"https://images.unsplash.com/photo-1605822591786-6fd259a868d5?q=80&w=200&auto=format&fit=crop",living:"https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=200&auto=format&fit=crop",kitchen:"https://images.unsplash.com/photo-1610276173132-c47d148ab626?q=80&w=200&auto=format&fit=crop",bedroom:"https://images.unsplash.com/photo-1633944095397-878622ebc01c?q=80&w=200&auto=format&fit=crop",balcony:"https://images.unsplash.com/photo-1693585576674-2e1b7166f583?q=80&w=200&auto=format&fit=crop",terrace:"https://images.unsplash.com/photo-1730204880386-1587173e16e7?q=80&w=200&auto=format&fit=crop",neutral:"https://images.unsplash.com/photo-1747336754870-ca7b10cc75f5?q=80&w=200&auto=format&fit=crop"};
+
+  /* ---- Icônes meubles ---- */
+  const ICONS={
+    canape:'<rect x="2" y="11" width="20" height="6" rx="2"/><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><line x1="5" y1="17" x2="5" y2="20"/><line x1="19" y1="17" x2="19" y2="20"/>',
+    fauteuil:'<path d="M7 11V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><rect x="7" y="11" width="10" height="6" rx="1"/><line x1="8" y1="17" x2="8" y2="20"/><line x1="16" y1="17" x2="16" y2="20"/>',
+    table:'<rect x="3" y="9" width="18" height="3" rx="1"/><line x1="5" y1="12" x2="5" y2="19"/><line x1="19" y1="12" x2="19" y2="19"/>',
+    commode:'<rect x="5" y="4" width="14" height="16" rx="1"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="14" x2="19" y2="14"/>',
+    lit:'<path d="M2 18v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5"/><line x1="2" y1="18" x2="22" y2="18"/><path d="M6 11V8h6v3"/>',
+    chaise:'<path d="M8 4v9h8"/><path d="M8 13l-1 7"/><path d="M16 13l1 7"/><line x1="8" y1="9" x2="16" y2="9"/>',
+    etagere:'<rect x="5" y="3" width="14" height="18" rx="1"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/>',
+    lampe:'<path d="M9 3h6l2 6H7z"/><line x1="12" y1="9" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/>',
+    tapis:'<rect x="3" y="7" width="18" height="10" rx="1"/><line x1="6" y1="7" x2="6" y2="17"/><line x1="18" y1="7" x2="18" y2="17"/>',
+    cuisine:'<rect x="3" y="4" width="18" height="16" rx="1"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="3" y1="12" x2="21" y2="12"/>',
+    plante:'<path d="M12 20v-7"/><path d="M12 13c-3 0-5-2-5-5 3 0 5 2 5 5z"/><path d="M12 13c3 0 5-2 5-5-3 0-5 2-5 5z"/><line x1="9" y1="20" x2="15" y2="20"/>'
+  };
+
+  /* ---- Produits réels par type (équiv. IKEA + Maisons du Monde) ---- */
+  const PRODUCTS={
+    canape:{label:"Canapé",img:T.sofa,ikea:{name:"KIVIK 3 places",price:"599 €",query:"KIVIK canapé",url:"https://www.ikea.com/fr/fr/p/kivik-canape-3-places-tibbleby-beige-gris-s49440597/"},mdm:{name:"Canapé en lin",price:"899 €",query:"canapé lin"}},
+    fauteuil:{label:"Fauteuil",img:T.chair,ikea:{name:"POÄNG",price:"99 €",query:"POÄNG fauteuil",url:"https://www.ikea.com/fr/fr/p/poaeng-fauteuil-plaque-chene-blanchi-gunnared-beige-s69501995/"},mdm:{name:"Fauteuil scandinave",price:"249 €",query:"fauteuil scandinave"}},
+    table:{label:"Table basse",img:T.living,ikea:{name:"LACK",price:"39,99 €",query:"LACK table basse",url:"https://www.ikea.com/fr/fr/p/lack-table-basse-blanc-90449905/"},mdm:{name:"Table basse manguier",price:"229 €",query:"table basse manguier"}},
+    commode:{label:"Commode",img:T.bedroom,ikea:{name:"HEMNES 8 tiroirs",price:"179 €",query:"HEMNES commode",url:"https://www.ikea.com/fr/fr/p/hemnes-commode-8-tiroirs-teinte-blanc-10239280/"},mdm:{name:"Commode 3 tiroirs",price:"399 €",query:"commode bois"}},
+    lit:{label:"Lit",img:T.bedroom,ikea:{name:"MALM cadre de lit",price:"229 €",query:"MALM lit",url:"https://www.ikea.com/fr/fr/p/malm-cadre-de-lit-avec-matelas-plaque-chene-blanchi-valevag-ferme-s19536841/"},mdm:{name:"Lit en bois",price:"599 €",query:"lit bois"}},
+    chaise:{label:"Chaise",img:T.kitchen,ikea:{name:"INGOLF",price:"55 €",query:"INGOLF chaise"},mdm:{name:"Chaise bois",price:"89 €",query:"chaise bois"}},
+    etagere:{label:"Étagère",img:T.living,ikea:{name:"BILLY",price:"60 €",query:"BILLY bibliothèque",url:"https://www.ikea.com/fr/fr/p/billy-bibliotheque-blanc-50522040/"},mdm:{name:"Étagère métal",price:"399 €",query:"bibliothèque métal"}},
+    lampe:{label:"Lampe",img:T.living,ikea:{name:"HOLMÖ",price:"24,99 €",query:"HOLMÖ lampadaire"},mdm:{name:"Lampadaire trépied",price:"99,99 €",query:"lampadaire trépied"}},
+    tapis:{label:"Tapis",img:T.neutral,ikea:{name:"VINDUM",price:"149 €",query:"VINDUM tapis"},mdm:{name:"Tapis berbère",price:"129 €",query:"tapis berbère"}},
+    cuisine:{label:"Cuisine",img:T.kitchen,ikea:{name:"METOD",price:"199 €",query:"METOD cuisine"},mdm:{name:"Buffet cuisine",price:"499 €",query:"buffet cuisine"}},
+    plante:{label:"Plante / Déco",img:T.balcony,ikea:{name:"FEJKA",price:"12,99 €",query:"FEJKA plante"},mdm:{name:"Plante déco",price:"39,99 €",query:"plante artificielle déco"}}
+  };
+  const TYPE_ORDER=["canape","fauteuil","table","commode","lit","chaise","etagere","lampe","tapis","cuisine","plante"];
+  function priceNum(p){const m=(p||"").replace(/[^0-9,\.]/g,'').replace(',','.');return parseFloat(m)||0;}
+  function afterImageFor(types){
+    if(types.includes('cuisine')) return T.kitchen.replace('w=200','w=1100');
+    if(types.includes('lit')||types.includes('commode')) return T.bedroom.replace('w=200','w=1100');
+    if(types.includes('plante')&&!types.includes('canape')) return T.terrace.replace('w=200','w=1100');
+    return T.living.replace('w=200','w=1100');
+  }
+  function merchantsOf(it){return [
+    {label:"IKEA",store:"ikea",name:it.ikea.name,price:it.ikea.price,query:it.ikea.query,url:it.ikea.url},
+    {label:"Maisons du Monde",store:"mdm",name:it.mdm.name,price:it.mdm.price,query:it.mdm.query,url:it.mdm.url},
+    {label:"Leroy Merlin",store:"leroy",name:"Équivalent",price:"",query:it.object},
+    {label:"Amazon",store:"amazon",name:"Équivalent",price:"",query:it.object}
+  ];}
+  function refURL(m){return m.url||listingURL(m.store,m.query);}
+  /* tri budget : on garde ce qui rentre dans le budget et on privilégie le MOINS cher
+     (un peu d'économie quand c'est possible), sinon le moins cher disponible */
+  function budgetPick(it,budget){
+    const opts=[{store:"mdm",price:it.mdm.price},{store:"ikea",price:it.ikea.price}];
+    const fit=opts.filter(o=>priceNum(o.price)<=budget).sort((a,b)=>priceNum(a.price)-priceNum(b.price));
+    return (fit[0]||opts.slice().sort((a,b)=>priceNum(a.price)-priceNum(b.price))[0]).store;
+  }
+
+  /* ---- Abonnement / quota ---- */
+  function isSub(){try{return localStorage.getItem('kithome_sub')==='1';}catch(e){return false;}}
+  function gens(){try{return parseInt(localStorage.getItem('kithome_gens')||'0',10)||0;}catch(e){return 0;}}
+  function incGens(){try{localStorage.setItem('kithome_gens',String(gens()+1));}catch(e){}}
+  function lockedView(){return gens()>FREE_LIMIT && !isSub();}
+  function updateMeter(){const m=document.getElementById('genMeter'); if(!m)return;
+    m.innerHTML=isSub()?'✓ Abonné — générations illimitées':
+      ('Générations utilisées : <b>'+gens()+'</b> / '+FREE_LIMIT+(gens()>=FREE_LIMIT?' — liens produits réservés aux abonnés au-delà':''));}
+  function updateSubState(){const s=document.getElementById('subState'); if(s) s.textContent=isSub()?'✓ Abonnement actif — liens, comparatif et avis débloqués':'';}
+  function subscribe(){try{localStorage.setItem('kithome_sub','1');}catch(e){}
+    updateSubState();updateMeter(); if(lastChosen)renderShop(lastChosen);
+    alert("Abonnement activé (démo). Liens marchands, comparatif et avis détaillés débloqués.");}
+  document.querySelectorAll('.subscribe-btn').forEach(b=>b.addEventListener('click',subscribe));
+
+  /* ---- Import image (garde base + proportions) ---- */
+  let baseImage=null, baseRatio=null;
+  function applyRatio(){ if(baseRatio){ba.style.height='auto';ba.style.aspectRatio=baseRatio;} else {ba.style.aspectRatio='';ba.style.height='';} }
+  document.getElementById('imgUp').addEventListener('change',e=>{
+    const f=e.target.files[0]; if(!f)return;
+    const r=new FileReader();
+    r.onload=()=>{baseImage=r.result;const im=new Image();im.onload=()=>{baseRatio=im.naturalWidth+' / '+im.naturalHeight;};im.src=baseImage;
+      document.getElementById('imgName').textContent=f.name+" importée";};
+    r.readAsDataURL(f);
+  });
+
+  /* ---- Clé Gemini mémorisée localement ---- */
+  const keyInput=document.getElementById('geminiKey');
+  try{const k=localStorage.getItem('kithome_gemini'); if(k) keyInput.value=k;}catch(e){}
+  keyInput.addEventListener('input',()=>{try{localStorage.setItem('kithome_gemini',keyInput.value.trim());}catch(e){}});
+  function keyVal(){return (keyInput.value||"").trim();}
+
+  /* ---- Gemini image (référence si fournie) ---- */
+  async function geminiImage(prompt,key){
+    const url="https://generativelanguage.googleapis.com/v1beta/models/"+GEMINI_IMAGE_MODEL+":generateContent?key="+key;
+    const parts=[{text:prompt}];
+    if(baseImage){const m=baseImage.match(/^data:(.+?);base64,(.+)$/); if(m) parts.push({inline_data:{mime_type:m[1],data:m[2]}});}
+    const r=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({contents:[{parts}],generationConfig:{responseModalities:["TEXT","IMAGE"]}})});
+    if(!r.ok) throw new Error("gemini-img "+r.status);
+    const d=await r.json();
+    const ps=(d.candidates&&d.candidates[0]&&d.candidates[0].content.parts)||[];
+    for(const p of ps){ if(p.inline_data&&p.inline_data.data) return "data:image/png;base64,"+p.inline_data.data;
+                        if(p.inlineData&&p.inlineData.data) return "data:image/png;base64,"+p.inlineData.data; }
+    throw new Error("no image");
+  }
+  /* image via clé (navigateur) ou backend serveur (server.js) — pas de mode démo */
+  async function genImage(prompt,key){
+    if(key) return await geminiImage(prompt,key);
+    const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,image:baseImage})});
+    if(!r.ok) throw new Error('no-ai'); const d=await r.json(); return d.image;
+  }
+
+  /* ===== POP-UP sélection meubles + budget ===== */
+  const pickModal=document.getElementById('pickModal'), pickGrid=document.getElementById('pickGrid');
+  const budgetRange=document.getElementById('budgetRange'), budgetVal=document.getElementById('budgetVal');
+  let pickState={}, currentStyle='';
+  function fmtEur(n){return n.toLocaleString('fr-FR')+' €';}
+  budgetRange.addEventListener('input',()=>budgetVal.textContent=fmtEur(parseInt(budgetRange.value,10)));
+  function buildPickGrid(){
+    pickGrid.innerHTML='';
+    TYPE_ORDER.forEach(t=>{
+      const p=PRODUCTS[t];
+      const el=document.createElement('div'); el.className='pick-card'+(pickState[t]?' sel':'');
+      el.innerHTML='<svg viewBox="0 0 24 24">'+ICONS[t]+'</svg><span>'+p.label+'</span>';
+      el.addEventListener('click',()=>{pickState[t]=!pickState[t];el.classList.toggle('sel',pickState[t]);});
+      pickGrid.appendChild(el);
+    });
+  }
+  function openPick(style,preset){
+    currentStyle=style||'';
+    pickState={}; (preset||[]).forEach(t=>pickState[t]=true);
+    buildPickGrid();
+    pickModal.classList.add('show');
+  }
+  document.getElementById('pickClose').addEventListener('click',()=>pickModal.classList.remove('show'));
+  pickModal.addEventListener('click',e=>{if(e.target===pickModal)pickModal.classList.remove('show');});
+  document.getElementById('openPickBtn').addEventListener('click',()=>openPick('',['canape','table','etagere','lampe','tapis']));
+  document.getElementById('prompt').addEventListener('focus',()=>{ if(!pickModal.classList.contains('show') && !Object.keys(pickState).length) openPick('',['canape','table','etagere','lampe','tapis']); });
+  /* kits -> génèrent dans l'ambiance */
+  document.querySelectorAll('.kit-btn').forEach(b=>b.addEventListener('click',(ev)=>{
+    ev.preventDefault();
+    const card=ev.target.closest('.card');
+    const style=card.dataset.style||''; const types=(card.dataset.types||'').split(',').filter(Boolean);
+    document.getElementById('prompt').value=card.querySelector('h3').textContent+' — ambiance '+style;
+    openPick(style,types);
+  }));
+
+  /* ===== Affichage résultats ===== */
+  const shop=document.getElementById('shop'), shopList=document.getElementById('shop-list'), shopTotal=document.getElementById('shopTotal');
+  let lastChosen=null, currentBudget=2500;
+  function renderShop(items){
+    shopList.innerHTML=''; const lk=lockedView(); let total=0;
+    items.forEach(it=>{
+      const pick=budgetPick(it,currentBudget);
+      total+=priceNum(it[pick].price);
+      const el=document.createElement('div'); el.className='shop-item prod';
+      let lines;
+      if(lk){ lines='<div class="locked">🔒 Liens réservés aux abonnés au-delà de '+FREE_LIMIT+' générations. <a href="#abonnement">Voir les abonnements</a></div>'; }
+      else { lines=merchantsOf(it).map(m=>{
+        const reco=(m.store===pick);
+        return '<div class="match'+(reco?' reco':'')+'"><span class="store'+(m.store==='mdm'?' mdm':'')+'">'+m.label+'</span>'+
+          '<span class="mdl">'+m.name+(reco?' <span class="reco-tag">✓ budget</span>':'')+'</span><span class="pr">'+(m.price||'')+'</span>'+
+          '<a class="lk buy" target="_blank" rel="noopener" href="'+refURL(m)+'">Voir la fiche</a></div>';
+      }).join(''); }
+      el.innerHTML='<img class="thumb" src="'+it.img+'" alt="">'+
+        '<div class="info"><div class="nm">'+it.object+'</div>'+lines+
+        '<div style="margin-top:4px"><a class="lk cmp-btn" href="#">Comparer prix &amp; avis</a></div></div>';
+      el.querySelector('.cmp-btn').addEventListener('click',(ev)=>{ev.preventDefault();openCompare(it);});
+      shopList.appendChild(el);
+    });
+    shopTotal.textContent = lk?'' : ('Total estimé (meilleur choix budget) : '+fmtEur(Math.round(total)));
+    shop.classList.add('show');
+  }
+
+  /* ===== Comparatif pop-up ===== */
+  const cmpModal=document.getElementById('cmpModal');
+  document.getElementById('cmpClose').addEventListener('click',()=>cmpModal.classList.remove('show'));
+  cmpModal.addEventListener('click',e=>{if(e.target===cmpModal)cmpModal.classList.remove('show');});
+  function stars(n){let s='';for(let i=0;i<5;i++) s+= i<Math.round(n)?'★':'☆'; return s;}
+  function openCompare(it){
+    const ms=merchantsOf(it), pick=budgetPick(it,currentBudget), sub=isSub();
+    const rows=ms.map(m=>{
+      const reco=m.store===pick;
+      return '<div class="cmp-row'+(reco?' reco':'')+'">'+
+        '<div class="cmp-m">'+m.label+(reco?' <span class="reco-tag">Meilleur budget</span>':'')+'<div class="cmp-ref">'+m.name+'</div></div>'+
+        '<div class="cmp-price">'+(m.price||'—')+'</div>'+
+        '<a class="cmp-go" target="_blank" rel="noopener" href="'+refURL(m)+'">Voir</a></div>';
+    }).join('');
+    const rating=(4.1+(it.object.length%5)*0.16).toFixed(1);
+    document.getElementById('cmpBody').innerHTML=
+      '<div class="cmp-head"><img src="'+it.img+'" alt="">'+
+        '<div><div class="cmp-obj">'+it.object+'</div>'+
+        '<div class="cmp-pick">Choix conseillé : '+it[pick].name+' · '+STORE[pick][0]+' · <b>'+(it[pick].price||'')+'</b></div></div></div>'+
+      '<div class="cmp-list">'+rows+'</div>'+
+      '<div class="cmp-rev'+(sub?'':' lock')+'">'+
+        '<div class="cmp-rate">'+stars(rating)+' <b>'+rating+'</b><span>/5 · avis indicatifs</span></div>'+
+        '<div class="cmp-rvs"><p>Bon rapport qualité-prix, montage simple.</p>'+
+          '<p>Confortable au quotidien ; dimensions conformes.</p>'+
+          '<p>Matériaux agréables ; livraison correcte.</p></div>'+
+        (sub?'':'<div class="cmp-gate">🔒 Avis détaillés réservés aux abonnés · <a href="#abonnement" onclick="document.getElementById(\'cmpModal\').classList.remove(\'show\')">S\'abonner</a></div>')+
+      '</div>';
+    cmpModal.classList.add('show');
+  }
+
+  /* ===== Génération ===== */
+  const goBtn=document.getElementById('go');
+  goBtn.addEventListener('click',async ()=>{
+    const types=TYPE_ORDER.filter(t=>pickState[t]);
+    if(!types.length){alert("Choisissez au moins un meuble.");return;}
+    const key=keyVal();
+    const served = location.protocol==='http:'||location.protocol==='https:';
+    if(!key && !served){ alert("Ajoutez votre clé Gemini (champ en haut) pour lancer la génération."); return; }
+    /* la photo de la pièce est TOUJOURS obligatoire : elle est la base du travail */
+    if(!baseImage){
+      alert("Importez d'abord une photo de VOTRE pièce : elle sert de base à l'aménagement, l'IA s'y adapte.");
+      pickModal.classList.remove('show'); document.getElementById('imgUp').click(); return;
+    }
+    currentBudget=parseInt(budgetRange.value,10);
+    const desc=(document.getElementById('prompt').value||"").trim();
+    pickModal.classList.remove('show'); goBtn.disabled=true; const lbl=goBtn.textContent; goBtn.textContent='Génération…';
+
+    const items=types.map(t=>({object:PRODUCTS[t].label,img:PRODUCTS[t].img,ikea:PRODUCTS[t].ikea,mdm:PRODUCTS[t].mdm}));
+    const names=items.map(i=>i.object);
+    const prompt=(baseImage
+        ? "À partir de la photo fournie, conserve la pièce, ses murs, fenêtres et volume, et transforme-la en intérieur "
+        : "Photo d'intérieur réaliste et lumineuse, ")+
+      "ambiance "+(currentStyle||"chaleureuse")+". "+desc+". Ajoute ces meubles : "+names.join(", ")+
+      ". Budget ~"+currentBudget+"€ par meuble. Rendu déco professionnel et lumineux.";
+
+    let img=null, before=baseImage||null;
+    try{
+      img=await genImage(prompt,key);
+      if(!baseImage){ before=await genImage("Photo réaliste de la même pièce mais VIDE et délabrée, à rénover, mêmes murs et angle. "+desc,key); }
+    }catch(e){ console.warn(e);
+      alert("La génération a échoué (clé invalide, quota atteint ou modèle indisponible). Vérifiez votre clé Gemini.");
+      goBtn.disabled=false; goBtn.textContent=lbl; return;
+    }
+
+    afterImg.src=img; beforeImg.src=before||DERELICT;
+    ba.style.display=''; applyRatio(); ba.style.setProperty('--p','55%'); baRange.value=55;
+    incGens(); updateMeter(); lastChosen=items; renderShop(items);
+    goBtn.disabled=false; goBtn.textContent=lbl;
+    ba.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+
+  /* Accessibilité : fermeture par Échap des pop-ups et du menu */
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      document.querySelectorAll('.modal.show').forEach(m=>m.classList.remove('show'));
+      menuPop.classList.remove('show');
+    }
+  });
+
+  updateMeter(); updateSubState();
+</script>
+</body>
+</html>
